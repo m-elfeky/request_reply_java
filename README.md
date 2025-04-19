@@ -7,13 +7,15 @@ Overview
 The Request-Reply pattern is a fundamental messaging pattern that enables two-way communication between components in distributed systems. Here's a clear explanation with a visual representation:
 
 How It Works
+
 Request: A client sends a message (request) to a server or service through RabbitMQ. the client will publish the data to test Queue
 Processing: The server processes the request. the server is listening to test queue.
 Reply: The server sends a response message back to the client through RabbitMQ
 
 Request Key Characteristics
-Synchronous-like behavior: While messaging is typically asynchronous, this pattern provides a way to simulate synchronous communication.
-Correlation ID: Each request includes an identifier that ties the reply to the original request. The client knows his reply from Correlation ID.
+
+1. Synchronous-like behavior: While messaging is typically asynchronous, this pattern provides a way to simulate synchronous communication.
+2. Correlation ID: Each request includes an identifier that ties the reply to the original request. The client knows his reply from Correlation ID.
 
 
 What is in This Project?
