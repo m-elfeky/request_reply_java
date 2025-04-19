@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - 5672:5672      # RabbitMQ main port
+      - 15672:15672    # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+      # RABBITMQ_LOAD_DEFINITIONS: /etc/rabbitmq/definitions.json
+    volumes:
+      - rabbitmq-data:/Users/mohamedelfeky/00dev/MyGitProjects/request_reply/rabbitmq    # need to change this path
+      #- ./rabbitmq-definitions.json:/etc/rabbitmq/definitions.json:ro
+
+
+  server:
+    depends_on:
+      - rabbitmq
+    build: ./server
+    ports:
+      - 8000:8081
+
+  client:
+    depends_on:
+      - rabbitmq
+    build: ./client
+    ports:
+      - 8081:8081
+
+volumes:
+  rabbitmq-data:
