@@ -31,16 +31,17 @@ What You Need (If you plan to debug the code)
 
 Project Setup and Testing Guide
 
-1. Start the Application
-Run the following command to build and launch the Docker containers: docker compose up --build
+1. Start the application.
+Run the following command to build and launch the Docker containers:
 
-3. Configure RabbitMQ
-Access the RabbitMQ management console at:
-http://localhost:15672
-(Credentials: username guest, password guest)
-Navigate to:
-  -> Queues and streams
-     Create a new queue named test
-3. Test the Application
-Import the Postman collection from the project repository
-Execute the available API requests to verify functionality
+```sh
+docker compose up --build
+```
+
+2. Configure RabbitMQ.
+Access the RabbitMQ management console at http://localhost:15672 (credentials: username `guest`, password `guest`).
+Navigate to **Queues and streams** and create a new queue named `test`.
+
+3. Test the application.
+Import the Postman collection from the project repository.
+Execute the available API requests to verify functionality.
